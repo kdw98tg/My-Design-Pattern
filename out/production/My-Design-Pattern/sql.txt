@@ -1,0 +1,15 @@
+select A.discount_SaleCode, B.payment_Type, SUM(A.product_Count) as total_Count, SUM(B.payment_Amt) as total_Price FROM ticket_order_detail_tb A RIGHT JOIN ticket_payment_tb B ON A.order_Code = B.order_Code WHERE A.discount_SaleCode = '0' OR A.discount_SaleCode = '1' GROUP BY B.payment_Type UNION ALL
+
+select A.discount_SaleCode, B.payment_Type, SUM(A.product_Count) as total_Count, SUM(B.payment_Amt) as total_Price FROM ticket_order_detail_tb A RIGHT JOIN ticket_payment_tb B ON A.order_Code = B.order_Code WHERE A.discount_SaleCode = '2' OR A.discount_SaleCode = '3' GROUP BY B.payment_Type UNION ALL
+
+select A.discount_SaleCode, B.payment_Type, SUM(A.product_Count) as total_Count, SUM(B.payment_Amt) as total_Price FROM ticket_order_detail_tb A RIGHT JOIN ticket_payment_tb B ON A.order_Code = B.order_Code WHERE A.discount_SaleCode = '4' GROUP BY B.payment_Type UNION ALL
+
+select A.discount_SaleCode, B.payment_Type, SUM(A.product_Count) as total_Count, SUM(B.payment_Amt) as total_Price FROM ticket_order_detail_tb A RIGHT JOIN ticket_payment_tb B ON A.order_Code = B.order_Code WHERE A.discount_SaleCode = '5'  GROUP BY B.payment_Type;
+
+
+
+select A.discount_SaleCode, B.payment_Type, SUM(A.total_Count), SUM(A.total_Price )
+from (select order_Code, discount_SaleCode, SUM(product_Count) as total_Count, SUM(discount_SalePrice * product_Count) as total_Price FROM ticket_order_detail_tb GROUP BY order_Code) A  
+RIGHT JOIN ticket_payment_tb B 
+ON A.order_Code = B.order_Code
+GROUP BY A.discount_SaleCode, B.payment_Type
