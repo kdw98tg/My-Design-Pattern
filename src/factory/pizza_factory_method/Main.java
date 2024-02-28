@@ -13,6 +13,5 @@ public class Main {
         PizzaStore chicagoPizzaStore = new ChicagoPizzaStore();
         pizza = chicagoPizzaStore.orderPizza(Pizzas.CHEESE);
         System.out.println("에단이 주문한" + pizza.getName());
-
     }
 }
