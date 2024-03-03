@@ -31,7 +31,4 @@ public abstract class Pizza {
         //피자 이름 출력
         return null;
     }
-
-
-
 }

@@ -5,9 +5,9 @@ import java.util.List;
 
 public abstract class Pizza {
 
-    private String name;
-    private String dough;
-    private String sauce;
+    protected String name;
+    protected String dough;
+    protected String sauce;
     List<String> toppings = new ArrayList<>();
 
     public String getName() {
@@ -15,17 +15,19 @@ public abstract class Pizza {
     }
 
     public void prepare() {
-        System.out.println("준비중입니다" + name);
+        System.out.println("준비중입니다 " + name);
     }
     public void bake(){
-        System.out.println("요리중입니다" + name);
+        System.out.println("요리중입니다 " + name);
     }
     public void cut(){
-        System.out.println("자르는중입니다" + name);
+        System.out.println("자르는중입니다 " + name);
     }
     public void box(){
-        System.out.println("포장중입니다" + name);
+        System.out.println("포장중입니다 " + name);
     }
+
+    @Override
     public String toString(){
         StringBuffer display = new StringBuffer();
         display.append("---- " + name + " ----\n");

@@ -8,5 +8,4 @@ public class NYStyleCheesePizza extends Pizza{
 
         toppings.add("잘게 썬 레지아노 치즈");
     }
-
 }

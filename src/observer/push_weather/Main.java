@@ -1,4 +1,4 @@
-package src.observer;
+package src.observer.push_weather;
 
 import src.observer.push_weather.*;
 
