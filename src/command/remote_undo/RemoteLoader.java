@@ -22,6 +22,7 @@ public class RemoteLoader {
         remoteControl.undoButtonWasPushed();
 
 
+
         CeilingFan ceilingFan = new CeilingFan("Living Room");
 
         CeilingFanMediumCommand ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan);
