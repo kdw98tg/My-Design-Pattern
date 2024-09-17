@@ -17,7 +17,7 @@ public class Main {
         display(ducks);
 
         Arrays.sort(ducks);
-        
+
 
         System.out.println("---정렬 후---");
         display(ducks);

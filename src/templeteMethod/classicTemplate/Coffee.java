@@ -3,9 +3,6 @@ package src.templeteMethod.classicTemplate;
 
 public class Coffee extends CaffeineBeverage{
 
-
-    
-    
     @Override
     protected void brew() {
         System.out.println("필터로 커피를 우려내는 중");    
