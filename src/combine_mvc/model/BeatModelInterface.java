@@ -1,4 +1,4 @@
-package src.combine_mvc;
+package src.combine_mvc.model;
 
 public interface BeatModelInterface {
     public void initialize();
