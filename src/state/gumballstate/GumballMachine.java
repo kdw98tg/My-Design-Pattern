@@ -1,19 +1,27 @@
-package src.state.context;
-
-import src.state.State;
+package src.state.gumballstate;
 
 public class GumballMachine {
     private State soldState;
     private State soldOutState;
-    private State noQuaterState;
-    private State hasQuaterState;
-    private State winnerState;
+    private State noQuarterState;
+    private State hasQuarterState;
 
-    private State state = soldOutState;
+    private State state;
+
     int count = 0;
 
     public GumballMachine(int numberGumballs) {
+        soldOutState = new SoldOutState(this);
+        noQuarterState = new NoQuaterState(this);
+        hasQuarterState = new HasQuaterState(this);
+        soldState = new SoldState(this);
 
+        this.count = numberGumballs;
+        if (numberGumballs > 0) {
+            state = noQuarterState;
+        } else {
+            state = soldOutState;
+        }
     }
 
     public void insertQuater(){
@@ -39,6 +47,12 @@ public class GumballMachine {
         }
     }
 
+    public void refill(int _count){
+        this.count += _count;
+        System.out.println("껌볼이 리필됨. 현재 검볼 : "+ _count);
+        state.refill();
+    }
+
     public int getCount(){
         return count;
     }
@@ -54,19 +68,16 @@ public class GumballMachine {
     public State getSoldOutState(){
         return soldOutState;
     }
-    public State getNoQuaterState(){
-        return noQuaterState;
+    public State getNoQuarterState(){
+        return noQuarterState;
     }
-    public State getHasQuaterState(){
-        return hasQuaterState;
-    }
-    public State getWinnerState(){
-        return winnerState;
+    public State getHasQuarterState(){
+        return hasQuarterState;
     }
     public String toString(){
         StringBuffer result = new StringBuffer();
         result.append("\n주식회사 왕뽑기");
-        result.append("\n자바로 돌아가는 2004년형 뽑기 기계");
+        result.append("\n2024년형 뽑기 기계");
         result.append("\n남은 갯수: "+ count + " 개");
         result.append("\n");
         result.append("\n현재 상태는 "+ state +"\n");

@@ -1,6 +1,4 @@
-package src.state;
-
-import src.state.context.GumballMachine;
+package src.state.gumballstate;
 
 public class SoldState implements State{
 
@@ -28,5 +26,20 @@ public class SoldState implements State{
     @Override
     public void dispense() {
         gumballMachine.releaseBall();
+        if(gumballMachine.getCount()>0){
+            gumballMachine.setState(gumballMachine.getNoQuarterState());
+        }
+        else{
+            System.out.println("이런, 껌볼이 다 떨어졌습니다!");
+        }
+    }
+
+    @Override
+    public void refill() {
+
+    }
+
+    public String toString(){
+        return "껌볼을 내보내는 중";
     }
 }
