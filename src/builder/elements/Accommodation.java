@@ -14,6 +14,8 @@ public abstract class Accommodation {
         return this.reservation;
     }
     public abstract String getLocation();
+
+    @Override
     public String toString() {
         StringBuffer display = new StringBuffer();
         display.append("당신은 " + name + "에 머물고 있습니다.");
